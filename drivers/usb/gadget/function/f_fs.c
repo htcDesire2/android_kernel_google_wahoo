@@ -1044,7 +1044,7 @@ ffs_epfile_open(struct inode *inode, struct file *file)
 	file->private_data = epfile;
 	ffs_data_opened(epfile->ffs);
 
-<<<<<<< HEAD
+
 	smp_mb__before_atomic();
 	atomic_set(&epfile->error, 0);
 
@@ -1052,9 +1052,6 @@ ffs_epfile_open(struct inode *inode, struct file *file)
 		epfile->ffs->setup_state, epfile->ffs->flags);
 
 	return 0;
-=======
-	return stream_open(inode, file);
->>>>>>> e34aefa10ff6 (usb: gadget: f_fs: Use stream_open() for endpoint files)
 }
 
 static int ffs_aio_cancel(struct kiocb *kiocb)
